@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'Uthmani';
+    src: url("../fonts/Uthmani/uthmanic_hafs_ver09.otf");
+}
+@font-face {
+    font-family: 'Naskh';
+    src: url('../fonts/Naskh/noorehira.ttf');
+}
+@font-face {
+    font-family: 'Cairo';
+    src: url('../fonts/Cairo/Cairo-Regular.ttf');
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: 'Scheherazade';
+    src: url('../fonts/Scheherazade/Scheherazade-Regular.ttf');
+}
+@font-face {
+    font-family: 'Lalezar';
+    src: url('../fonts/Lalezar/Lalezar-Regular.ttf');
+}
+@font-face {
+    font-family: 'Changa';
+    src: url('../fonts/Changa/Changa-Regular.ttf');
+}
+header{
+    margin: 0 !important;
+    background-color: #f5f5f5;
+}
+.pager{
+    font: 2em 'Changa';
+    color: #337ab7;
+}
+.description, .question, .thanks{
+    font: 1.5em 'Cairo';
+    padding: 5% 2%;
+}
+#img_begin{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+#img_begin:hover{
+    box-shadow: 0px 0px 0.1em 0.5em #f5f5f5;
+}
+#img_begin:active{
+    box-shadow: 0px 0px 10px 5px #757575;
+}
+#btn_begin{
+    padding: 1% 2%;
+    margin: 5%;
+}
+.choice{
+    padding: 0%  50% !important;
+    font-size: 1em;
+    font-family: 'Changa', 'Cairo', sans-serif !important;
+}
+.form-horizontal--customized{
+    padding: 5% 5% 0% 5%;
+}
+.row-thanks{
+    padding-top: 10%;
+}
+.share{
+    margin: 0 auto;
+    text-align: center;
+}
