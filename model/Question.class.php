@@ -4,12 +4,20 @@ class Question
 {
 	private $id;
 	private $content;
-	private $category_id;
 
-	public function __construct(){}
+	public function __construct($id=null, $content='')
+	{
+		$this->id		=	$id;
+		$this->content	=	$content;
+	}
 
 	public function getId(){
 		return $this->id;
+	}
+
+	public function setId($id)
+	{
+		$this->id	=	$id;
 	}
 
 	public function getContent(){
@@ -19,10 +27,5 @@ class Question
 	public function setContent($content)
 	{
 		$this->content = $content;
-	}
-
-	public function getCategoryId()
-	{
-		return $this->category_id;
 	}
 }

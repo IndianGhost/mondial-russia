@@ -4,7 +4,7 @@
 <meta name="author" content="Achraf Bellaali"/>
 <meta name="keywords" content=""/>
 
-<title>مسابقة ثقافية</title>
+<title><?php echo APP_NAME; ?></title>
 
 <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"/>
 

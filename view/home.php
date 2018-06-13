@@ -1,6 +1,6 @@
 <?php
 $_SESSION['user_id']	=	uniqid();
-$_SESSION['question1']	=	true;
+$_SESSION['questions']	=	getQuestionsJson();
 ?>
 <div class="container">
 	
