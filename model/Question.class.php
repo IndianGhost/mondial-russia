@@ -1,9 +1,11 @@
 <?php
+require_once 'Choice.class.php';
 
 class Question
 {
 	private $id;
 	private $content;
+    private $choices;
 
 	public function __construct($id=null, $content='')
 	{
@@ -28,4 +30,14 @@ class Question
 	{
 		$this->content = $content;
 	}
+
+	public function getChoices()
+    {
+        return $this->choices;
+    }
+
+    public function setChoices($choices)
+    {
+        $this->choices = $choices;
+    }
 }

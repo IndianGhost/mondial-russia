@@ -1,5 +1,5 @@
 <?php
-
+require_once 'Question.class.php';
 class Choice{
 	private $id;
 	private $content;

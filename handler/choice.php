@@ -1,4 +1,6 @@
 <?php
+require_once 'dbConnection.php';
+require_once '../model/Choice.class.php';
 /**
  * IMPORTANT NOTE: To get choices on a random way, call getChoices('RAND()', null)
  * The second argument must be null, and the third one is optional
@@ -47,14 +49,38 @@ function findChoice($id=1){
 }
 
 //tested and it works fine !
+function choiceWhere($column, $operator, $value, $order='asc', $key='id', $limit=null)
+{
+	global $pdo;
+	$result = [];
+
+	$query	=	'SELECT * FROM choices WHERE '.$column.' '.$operator.' '.$value.' ORDER BY '.$key.' '.$order;
+	$query	.=	$limit? ' LIMIT '.$limit : '';
+
+	$response	=	$pdo->query($query);
+	
+	foreach($response->fetchAll() as  $i => $choiceDatabase){
+		$choice = new Choice(
+			$choiceDatabase['id'],
+			$choiceDatabase['content'],
+			$choiceDatabase['isCorrect'],
+			$choiceDatabase['question_id']
+		);
+		$result[$i] = $choice;
+	}
+
+	return $result;
+}
+
+//tested and it works fine !
 function getChoicesJson($order='asc', $key='id', $limit=null){
 	$choices	=	getChoices($order, $key, $limit);
 	$results	=	[];
 	foreach($choices as $i => $choice){
 		$result = [
-			'id'		=>	$choice->getId(),
-			'content'	=>	$choice->getContent(),
-			'isCorrect'	=>	$choice->getIsCorrect(),
+			'id'			=>	$choice->getId(),
+			'content'		=>	$choice->getContent(),
+			'isCorrect'		=>	$choice->getIsCorrect(),
 			'question_id'	=>	$choice->getQuestionId()
 		];
 		$results[$i] = $result;
@@ -66,10 +92,27 @@ function getChoicesJson($order='asc', $key='id', $limit=null){
 function findChoiceJson($id=1){
 	$choice	=	findChoice($id);
 	$result		=	[
-		'id'		=>	$choice->getId(),
-		'content'	=>	$choice->getContent(),
-		'isCorrect'	=>	$choice->getIsCorrect(),
+		'id'			=>	$choice->getId(),
+		'content'		=>	$choice->getContent(),
+		'isCorrect'		=>	$choice->getIsCorrect(),
 		'question_id'	=>	$choice->getQuestionId()
 	];
 	return json_encode($result);
+}
+
+//tested and it works fine !
+function choiceWhereJson($column, $operator, $value, $order='asc', $key='id', $limit=null)
+{
+	$choices = choiceWhere($column, $operator, $value, $order, $key, $limit);
+	$results	=	[];
+	foreach($choices as $i => $choice){
+		$result = [
+			'id'			=>	$choice->getId(),
+			'content'		=>	$choice->getContent(),
+			'isCorrect'		=>	$choice->getIsCorrect(),
+			'question_id'	=>	$choice->getQuestionId()
+		];
+		$results[$i] = $result;
+	}
+	return json_encode($results);
 }

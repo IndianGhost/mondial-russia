@@ -10,7 +10,14 @@
 	require_once 'model/Question.class.php';
 ?>
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!--[if lt IE 7]>
+<html lang="ar" dir="rtl" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="ar" dir="rtl" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="ar" dir="rtl" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="ar" dir="rtl" class="no-js"> <!--<![endif]-->
 <head>
 	<?php include_once 'includes/head_content.php'; ?>
 </head>
@@ -26,13 +33,14 @@
 	<script type="text/javascript">
 		$(document).load( preload(750) );
 	</script>
-<?php if($view=='qcm'){ ?>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			var questions = <?php echo $_SESSION['questions']; ?>;
-			console.log(questions);
-		});
-	</script>
-<?php }		?>
+	
+	<?php if($view=='qcm'){ ?>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var questions = <?php echo $_SESSION['questions']; ?>;
+				console.log(questions);
+			});
+		</script>
+	<?php }		?>
 </body>
 </html>
