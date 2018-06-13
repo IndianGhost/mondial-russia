@@ -1,6 +1,7 @@
 <?php
-	include_once 'handler/dbConnection.php';
-	include_once 'handler/helpers.php';
+	session_start();
+	require_once 'handler/dbConnection.php';
+	require_once 'handler/helpers.php';
 	if( isset($_GET['view']) ){
 		//Available views
 		$views = [
@@ -21,6 +22,10 @@
 	<?php include_once 'includes/head_content.php'; ?>
 </head>
 <body>
+	<pre>
+		<?php var_dump($_SESSION['user_id']); ?>
+		<?php var_dump($_SESSION['question1']); ?>
+	</pre>
 	<?php include_once 'includes/preloader.php'; ?>
 	<?php include_once 'includes/header.php'; ?>
 	<?php include_once 'view/'.$view.'.php'; ?>

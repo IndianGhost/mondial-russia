@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-xs-12">
+		<div class="col-lg-offset-4 col-lg-4 col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12">
 
 			<div class="panel panel-primary">
 				
@@ -16,7 +16,7 @@
 				<div class="panel-body">
 					<form class="form-horizontal form-horizontal--customized">
 						<div class="form-group">
-							<div class="col-md-12">
+							<div class="col-md-offset-1 col-md-10">
 								<div class="checkbox">
 									<label>
 										<input name="" type="checkbox"/><span class="choice">الإسبانية</span>
@@ -26,7 +26,7 @@
 	                    </div>
 
 	                    <div class="form-group">
-	                    	<div class="col-md-12">
+	                    	<div class="col-md-offset-1 col-md-10">
 		                        <div class="checkbox">
 									<label>
 										<input name="" type="checkbox"/><span class="choice">الفرنسية</span>
@@ -36,7 +36,7 @@
 	                	</div>
 
 	                    <div class="form-group">
-	                    	<div class="col-md-12">
+	                    	<div class="col-md-offset-1 col-md-10">
 		                        <div class="checkbox">
 									<label>
 										<input name="" type="checkbox"/><span class="choice">الإنجليزية</span>
@@ -48,7 +48,7 @@
 						<div class="form-group">
 	                    	<div class="col-md-12">
 	                    		<center>
-		                    		<button type="submit" class="btn btn-primary">
+		                    		<button type="submit" class="btn btn-primary btn-arab">
 				                        إجابة
 				                    </button>
 				                </center>

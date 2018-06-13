@@ -12,11 +12,11 @@
 }
 @font-face {
     font-family: 'Roboto';
-    src: url('../fonts/Roboto/Roboto-Regular.ttf');
+    src: url('../fonts/Roboto/Roboto-Medium.ttf');
 }
 @font-face {
     font-family: 'Scheherazade';
-    src: url('../fonts/Scheherazade/Scheherazade-Regular.ttf');
+    src: url('../fonts/Scheherazade/Scheherazade-Bold.ttf');
 }
 @font-face {
     font-family: 'Lalezar';
@@ -31,7 +31,7 @@ header{
     background-color: #f5f5f5;
 }
 .pager{
-    font: 2em 'Changa';
+    font: 2em 'Cairo', 'Uthmani', 'Scheherazade', 'Changa';
     color: #337ab7;
 }
 .description, .question, .thanks{
@@ -44,10 +44,13 @@ header{
     width: 100%;
 }
 #img_begin:hover{
-    box-shadow: 0px 0px 0.1em 0.5em #f5f5f5;
+    box-shadow: 0px 0px 10px 2px #083e62;
 }
 #img_begin:active{
     box-shadow: 0px 0px 10px 5px #757575;
+}
+.credit{
+    font-family: 'Roboto', 'Uthmani', 'Naskh', 'Scheherazade', sans-serif
 }
 #btn_begin{
     padding: 1% 2%;
@@ -67,4 +70,11 @@ header{
 .share{
     margin: 0 auto;
     text-align: center;
+}
+.btn-arab{
+    font-family: 'Cairo', 'Changa', sans-serif;
+    font-size: 1.2em;
+}
+.footer{
+    font-family: 'Lalezar', 'Changa', 'Cairo', sans-serif;
 }

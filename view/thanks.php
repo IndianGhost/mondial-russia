@@ -25,3 +25,5 @@
 	</div><!-- .row -->
 
 </div><!-- .container -->
+
+<?php session_destroy(); ?>
