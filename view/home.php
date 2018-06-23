@@ -1,6 +1,7 @@
 <?php
 $_SESSION['user_id']	=	uniqid();
-$_SESSION['questions']	=	getQuestionsJson();
+$_SESSION['questions']	=	getQuestionsWithChoicesJson('RAND()', '');
+$_SESSION['reponses']	=	$_SESSION['questions'];
 ?>
 <div class="container">
 	

@@ -57,9 +57,10 @@ header{
     margin: 5%;
 }
 .choice{
-    padding: 0%  50% !important;
-    font-size: 1em;
+    display: inline;
+    font-size: 1.2em;
     font-family: 'Changa', 'Cairo', sans-serif !important;
+    font-weight: 200;
 }
 .form-horizontal--customized{
     padding: 5% 5% 0% 5%;

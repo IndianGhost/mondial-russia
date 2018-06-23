@@ -1,9 +1,5 @@
 <?php
-require_once 'dbConnection.php';
-require_once '../model/Question.class.php';
-require_once 'choice.php';
-
-/**
+/*
  * IMPORTANT NOTE: To get choices on a random way, call getChoices('RAND()', null)
  * The second argument must be null, and the third one is optional
  */
@@ -63,14 +59,20 @@ function getQuestionJson($order='asc', $key='id', $limit=null)
 }
 
 //tested and it works fine !
-function findQuestion($id=1){
+function findQuestion($id=1)
+{
     global $pdo;
 
     $query 				= 	'SELECT * FROM questions WHERE id = '.$id;
     $response 			= 	$pdo->query($query);
     if($response)
     {
-        return $response->fetch();
+        $questionDatabase   =   $response->fetch();
+        $question           =   new Question(
+            $questionDatabase['id'],
+            $questionDatabase['content']
+        );
+        return $question;
     }
     return false;
 }
@@ -81,9 +83,13 @@ function findQuestionJson($id=1)
     $question   =   findQuestion($id);
     if($question)
     {
+        if($question->getId()==null || $question->getContent()==null)
+        {
+            return null;
+        }
         $data       =   [
-            'id'        =>  $question['id'],
-            'content'   =>  $question['content']
+            'id'        =>  $question->getId(),
+            'content'   =>  $question->getContent()
         ];
         return json_encode( $data );
     }
@@ -114,7 +120,7 @@ function questionWhere($column, $operator, $value, $order='asc', $key='id', $lim
     return false;
 }
 
-//Coming Soon :'D
+//tested and it works fine !
 function questionWhereJson($column, $operator, $value, $order='asc', $key='id', $limit=null)
 {
     $questions  =   questionWhere($column, $operator, $value, $order, $key, $limit);
@@ -191,17 +197,17 @@ function getQuestionsWithChoicesJson($order='asc', $key='id', $limit=null)
 /*
  * Test for JSON methods
  */
-header('Content-Type: application/json; charset=urf-8');
-$data = questionWhereJson('id', '<=', '4', 'desc', 'id', 4);
-if($data)
-    echo $data;
-else
-    echo 'failed to reach data';
+//header('Content-Type: application/json; charset=urf-8');
+//$data = questionWhereJson('id', '>', 4, 'desc', 'id', 3);
+//if($data)
+//    echo $data;
+//else
+//    echo 'failed to reach data';
 
 /*
  * Test for other
  */
 //header('Content-Type: text/html; charset=utf-8');
 //echo '<pre>';
-//getQuestionsWithChoicesJson();
+//var_dump( findQuestion(1) );
 //echo '</pre>';

@@ -35,11 +35,18 @@
 	</script>
 	
 	<?php if($view=='qcm'){ ?>
+		<script src="assets/js/vue.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function(){
-				var questions = <?php echo $_SESSION['questions']; ?>;
-				console.log(questions);
+			//We're going to use vue.js to handle this QCM (Questions a choix Multiple)
+			//This page will be considered as a SPA (Single Page Application)
+			var quiz = new Vue({
+				el		:	'#js-quiz-app',
+				data	:	{
+					questions	:	<?php echo $_SESSION['questions']; ?>
+				}
 			});
+			var questions = <?php echo $_SESSION['questions']; ?>;
+			console.log(questions);
 		</script>
 	<?php }		?>
 </body>
